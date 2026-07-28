@@ -7,6 +7,8 @@ import withReactContent from "sweetalert2-react-content";
 
 const MySwal = withReactContent(Swal);
 
+import { ToastContainer, toast } from "react-toastify";
+
 const BookDetails = () => {
   const { id } = useParams();
   const bookId = parseInt(id);
@@ -23,11 +25,12 @@ const BookDetails = () => {
     // if book alrady exist then show a alert
     // if bok not exist then push in the collection or array
 
-    MySwal.fire({
-      title: "Good job!",
-      text: "You clicked the button!",
-      icon: "success",
-    });
+    // MySwal.fire({
+    //   title: "Good job!",
+    //   text: "You clicked the button!",
+    //   icon: "success",
+    // });
+    toast("Wow so easy!");
 
     addToStoreDB(id);
   };
@@ -35,6 +38,7 @@ const BookDetails = () => {
     <div className="w-2/3 mx-auto">
       <img className="w-48" src={image} alt="" />
       <h5>{bookName}</h5>
+      <ToastContainer />
 
       <p>{review}</p>
 
