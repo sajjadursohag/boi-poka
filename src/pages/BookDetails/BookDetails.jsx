@@ -2,6 +2,11 @@ import React from "react";
 import { useLoaderData, useParams } from "react-router";
 import { addToStoreDB } from "../../utility/addToDB";
 
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+
+const MySwal = withReactContent(Swal);
+
 const BookDetails = () => {
   const { id } = useParams();
   const bookId = parseInt(id);
@@ -9,12 +14,20 @@ const BookDetails = () => {
   const singleBook = data.find((book) => book.bookId === bookId);
   const { bookName, image, review } = singleBook || {};
 
+  const MySwal = withReactContent(Swal);
+
   const handleMarkAsRead = (id) => {
     // store with id
     // where to store
     // array or collection
     // if book alrady exist then show a alert
     // if bok not exist then push in the collection or array
+
+    MySwal.fire({
+      title: "Good job!",
+      text: "You clicked the button!",
+      icon: "success",
+    });
 
     addToStoreDB(id);
   };
