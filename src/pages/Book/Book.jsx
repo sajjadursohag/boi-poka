@@ -15,7 +15,7 @@ const Book = ({ singleBook }) => {
     tags,
     yearOfPublishing,
     publisher,
-    bookId
+    bookId,
   } = singleBook;
 
   return (
